@@ -1,23 +1,34 @@
 
+# IT 140 Module Four Assignment
+# Higher/Lower Game Pseudocode
+
 START hilow_game
 
-    # Establish a valid guessing range.
+    # Welcome the player.
     OUTPUT "Welcome to the higher/lower game, Bella!"
 
+    # Establish a valid guessing range.
+    OUTPUT "Enter the lower bound:"
     INPUT lower_bound
+
+    OUTPUT "Enter the upper bound:"
     INPUT upper_bound
 
     WHILE lower_bound >= upper_bound
         OUTPUT "The lower bound must be less than the upper bound."
+
+        OUTPUT "Enter the lower bound:"
         INPUT lower_bound
+
+        OUTPUT "Enter the upper bound:"
         INPUT upper_bound
     END WHILE
 
-    # Establish the number the player is trying to guess.
+    # Generate the random number.
     SET target_number = RANDOM_INTEGER(lower_bound, upper_bound)
 
-    # Play the game.
-    OUTPUT "Great, now guess a number between the lower and upper bounds."
+    # Get the first guess.
+    OUTPUT "Great, now guess a number between ", lower_bound, " and ", upper_bound, ":"
     INPUT guess
 
     # Validate the guess.
@@ -35,9 +46,10 @@ START hilow_game
             OUTPUT "Nope, too high."
         END IF
 
-        OUTPUT "Guess another number."
+        OUTPUT "Guess another number:"
         INPUT guess
 
+        # Validate each new guess.
         WHILE guess < lower_bound OR guess > upper_bound
             OUTPUT "Please enter a number within the selected range."
             INPUT guess
@@ -48,3 +60,4 @@ START hilow_game
     OUTPUT "You got it!"
 
 END hilow_game
+
